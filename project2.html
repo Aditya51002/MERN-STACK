@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weight Cal</title>
+    <style>
+    </style>
+</head>
+<body>
+
+    <h2>Student Details</h2>
+
+    <input type="number" id="weight" placeholder="Enter weight">
+    <input type="number" id="hight" placeholder="Enter hight">
+    
+    <button onclick="addData()">Add</button>
+
+    <table>
+        <thead>
+            <tr>
+                <th>weight</th>
+                <th>hight</th>
+                <th>result</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+        </tbody>
+    </table>
+
+    <script>
+        function addData() {
+            let weight= document.getElementById("weight").value;
+            let hight= document.getElementById("hight").value;
+
+            if (weight === "" || hight === "") {
+                alert("Please fill all fields");
+                return;
+            }
+            let result = weight / (hight*hight);
+
+            let table = document.getElementById("tableBody");
+            let row = table.insertRow();
+
+            row.insertCell(0).innerHTML = weight;
+            row.insertCell(1).innerHTML = hight;
+            row.insertCell(2).innerHTML = result.toFixed(2);
+            
+        }
+    </script>
+
+</body>
+</html>

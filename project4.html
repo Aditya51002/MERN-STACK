@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Class Room</title>
+</head>
+<body>
+
+    <h2>My To-Do List</h2>
+
+    <input type="text" id="tasklist" placeholder="Enter task">
+    <button onclick="addData()">Add task</button> 
+
+    <div id="tasks"></div>
+
+    <script>
+        function addData() {
+            const taskText = document.getElementById("tasklist").value;
+
+            if (taskText === "") {
+                alert("Please enter a task");
+                return;
+            }
+            const taskDiv = document.createElement("div");
+            taskDiv.innerHTML = `
+                ${taskText}
+                <button onclick="this.parentElement.remove()">Delete</button>`;
+
+            document.getElementById("tasks").appendChild(taskDiv);
+            document.getElementById("tasklist").value = "";
+        }
+    </script>
+
+</body>
+</html>

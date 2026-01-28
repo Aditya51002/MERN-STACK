@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SAb choor hai</title>
+    <style>
+    </style>
+</head>
+<body>
+
+    <h2>less vote</h2>
+    
+    <button onclick="addData()">BJP</button>
+    <button onclick="addData()">CONG</button>
+    <button onclick="addData()">AAP</button>
+
+    <table>
+        <thead>
+            <tr>
+                <th>BJP</th>
+                <th>CONG</th>
+                <th>AAP</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="bjpCount">0</td>
+                <td id="congCount">0</td>
+                <td id="aapCount">0</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        let bjp=0;
+        let cong=0;
+        let aap=0;
+
+        function addData(party){
+            
+            if(party==="BJP"){
+                bjp++;
+                document.getElementById("bjpCount").innerHTML===bjp;
+            }
+            else if(party==="CONG"){
+                cong++;
+                document.getElementById("congCount").innerHTML===cong;
+            }
+            else if(party==="AAP"){
+                aap++;
+                document.getElementById("aapCount").innerHTML===aap;
+
+            }
+        }
+    </script>
+
+</body>
+</html>

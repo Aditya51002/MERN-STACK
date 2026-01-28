@@ -1,0 +1,83 @@
+<!--<!DOCTYPE html>
+<html>
+<head>
+    <title>Color Change</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            margin: 10px;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Click the Box</h1>
+
+<div id="d1" class="box" onclick="changeAllColors(this)"></div>
+<div id="d2" class="box" onclick="changeAllColors(this)"></div>
+<div id="d3" class="box" onclick="changeAllColors(this)"></div>
+<div id="d4" class="box" onclick="changeAllColors(this)"></div>
+
+<script>
+    function randomColor() {
+        let r = Math.floor(Math.random() * 256);
+        let g = Math.floor(Math.random() * 256);
+        let b = Math.floor(Math.random() * 256);
+        return "rgb(" + r + "," + g + "," + b + ")";
+    }
+    
+    function changeAllColors() {
+
+        document.getElementById("d1").style.backgroundColor = randomColor();
+        document.getElementById("d2").style.backgroundColor = randomColor();
+        document.getElementById("d3").style.backgroundColor = randomColor();
+        document.getElementById("d4").style.backgroundColor = randomColor();
+    }
+</script>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Color Swap</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Click any box to swap colors</h2>
+
+<div id="d1" class="box" style="background:red" onclick="swapColors()"></div>
+<div id="d2" class="box" style="background:blue" onclick="swapColors()"></div>
+<div id="d3" class="box" style="background:green" onclick="swapColors()"></div>
+<div id="d4" class="box" style="background:yellow" onclick="swapColors()"></div>
+
+<script>
+    function swapColors() {
+        let c1 = document.getElementById("d1").style.backgroundColor;
+        let c2 = document.getElementById("d2").style.backgroundColor;
+        let c3 = document.getElementById("d3").style.backgroundColor;
+        let c4 = document.getElementById("d4").style.backgroundColor;
+
+        document.getElementById("d1").style.backgroundColor = c4;
+        document.getElementById("d2").style.backgroundColor = c1;
+        document.getElementById("d3").style.backgroundColor = c2;
+        document.getElementById("d4").style.backgroundColor = c3;
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demo API Fetch</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #333;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h2>Demo API Fetch</h2>
+    <div id="status" class="loading">Loading...</div>
+
+    <table id="usersTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Website</th>
+            </tr>
+        </thead>
+        <tbody id="usersBody">
+        </tbody>
+    </table>
+
+    <script>
+        const usersBody = document.getElementById('usersBody');
+        const statusDiv = document.getElementById('status');
+
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error("Fetch failed");
+                }
+                return res.json();
+            })
+            .then(users => {
+                displayUsers(users);
+                statusDiv.textContent = "Loaded";
+            })
+            .catch(err => {
+                statusDiv.textContent = "Error loading data";
+                console.error(err);
+            });
+
+        function displayUsers(users) {
+            users.forEach(user => {
+                let row = document.createElement('tr');
+
+                row.innerHTML = `
+                    <td>${user.id}</td>
+                    <td>${user.email}</td>
+                    <td>${user.phone}</td>
+                    <td>${user.website}</td>
+                `;
+
+                usersBody.appendChild(row);
+            });
+        }
+    </script>
+</body>
+</html>

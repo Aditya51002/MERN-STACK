@@ -1,0 +1,123 @@
+<!DOCTYPE>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quize</title>
+</html>
+<body>
+    <div class="container">
+        <h1>QUize app</h1>
+
+        <form id="card">
+            <div>what is the capital of India?</div>
+            <label> nhi pata
+                <input type="radio" name="Q1" value="nhi pata" />
+            </label>
+            <label>Delhi
+                <input type="radio" name="Q1" value="Delhi"/>
+            </label>
+            <label>Mumbai
+                <input type="radio" name="Q1" value="Mumbai"/>
+            </label>
+            <label>Kolkata
+                <input type="radio" name="Q1" value="Kolkata"/>
+            </label>
+
+
+            <div>which is the best sport?</div>
+            <label> Gili Danda
+                <input type="radio" name="Q2"  value="Gili Danda"/>
+            </label>
+            <label>Cricket
+                <input type="radio" name="Q2" value="Cricket"/>
+            </label>
+            <label>Football
+                <input type="radio" name="Q2" value="Football"/>
+            </label>
+            <label>Hockey
+                <input type="radio" name="Q2" value="Hockey"/>
+            </label>
+
+
+
+            <div>who has lamab neck</div>
+            <label>pata hai but nhi batana
+                <input type="radio" name="Q3" value="pata hai but nhi batana"/>
+            </label>
+            <label>Aditya
+                <input type="radio" name="Q3" value="Aditya"/>
+            </label>
+            <label>Pandey
+                <input type="radio" name="Q3" value="Pandey"/>
+            </label>
+            <label>Vishal
+                <input type="radio" name="Q3" value="Vishal"/>
+            </label>
+
+
+            <div>who is most masti khor</div>
+            <label>pata hai but nhi batana
+                <input type="radio" name="Q4" value="pata hai but nhi batana"/>
+            </label>
+            <label>Aditya
+                <input type="radio" name="Q4" value="Aditya"/>
+            </label>
+            <label>Pandey
+                <input type="radio" name="Q4" value="Pandey"/>
+            </label>
+            <label>Vishal
+                <input type="radio" name="Q4" value="Vishal"/>
+            </label>
+
+
+            <div>Papa of Pakistan</div>
+            <label>pata hai but nhi batana
+                <input type="radio" name="Q5" value="pata hai but nhi batana"/>
+            </label>
+            <label>India
+                <input type="radio" name="Q5" value="India"/>
+            </label>
+            <label>USA
+                <input type="radio" name="Q5" value="USA"/>
+            </label>
+            <label>China
+                <input type="radio" name="Q5" value="China"/>
+            </label>
+
+            <button type="submit">Submit</button>
+        </form>
+        <div id="result"></div>
+
+    </div>
+</body>
+
+<script>
+    const answers = {
+
+        Q1: "Delhi",
+        Q2: "Football",
+        Q3: "Pandey",
+        Q4: "Aditya",
+        Q5: "India"
+    }
+   const form = document.getElementById('card');
+   const resultDiv = document.getElementById('result');
+
+   form.addEventListener('submit',(e)=>{
+    e.preventDefault();
+    let score = 0;
+    let count = 0;
+    const formData = new FormData(form);
+
+    for (let [name, value] of formData){
+        if (answers[name] === value){
+            score += 1;
+        }
+    }
+
+    resultDiv.innerText = `Your Score is ${score} out of 5`;
+    result.style.color="Greeen"
+   })
+</script>
+</html>

@@ -1,0 +1,27 @@
+Ouestion(HomeWork1)
+“Create a simple program using HTML, CSS, and JavaScript where there are three input fields: Name,
+ Age, and Course. When the user enters data and clicks a button, the data should be added to a 
+ table and displayed below.”
+
+Question 2(HomeWork2)
+"Create an account page that displays the initial balance. Below it, there should be an
+ input field where the user can enter an amount. Create two buttons: Deposit and Withdraw.
+ When the user enters an amount and clicks Deposit, the amount should be added to the balance.
+ 
+ 
+ Question 3
+ "Create a program with 4 input fields. The user should type a number only in the first input field. 
+ Using events, the remaining three input fields should automatically display the power of that number: 
+ power 2, power 3, and power 4.”
+ 
+ 
+ Question4
+ “There are four boxes.
+ Box 1 should move to the right from its position.
+ Box 2 should move upward to the position of Box 1.
+ Box 3 should move to the right from its position, just below Box 1.
+ Box 4 should move upward to the position of Box 3.
+This movement should happen when the user clicks on any box.”
+
+Question5(HomeWork3)
+ "personal productive app that helps mange daily activites"

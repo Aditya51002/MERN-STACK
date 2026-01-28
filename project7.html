@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Power Calculator</title>
+</head>
+<body>
+
+<h2>Power Calculator</h2>
+
+<input type="number" id="i1" placeholder="Power 1">
+<input type="number" id="i2" placeholder="Power 2">
+<input type="number" id="i3" placeholder="Power 3">
+<input type="number" id="i4" placeholder="Power 4">
+
+<script>
+    function calculatePower(value) {
+        value = Number(value);
+        document.getElementById("i1").value = Math.pow(value, 1);
+        document.getElementById("i2").value = Math.pow(value, 2);
+        document.getElementById("i3").value = Math.pow(value, 3);
+        document.getElementById("i4").value = Math.pow(value, 4);
+    }
+
+    document.getElementById("i1").oninput = function () {
+        calculatePower(this.value);
+    };
+
+    document.getElementById("i2").oninput = function () {
+        calculatePower(this.value);
+    };
+
+    document.getElementById("i3").oninput = function () {
+        calculatePower(this.value);
+    };
+
+    document.getElementById("i4").oninput = function () {
+        calculatePower(this.value);
+    };
+</script>
+
+</body>
+</html>

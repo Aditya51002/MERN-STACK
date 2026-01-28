@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stopwatch</title>
+</head>
+<body>
+
+<h2>Stopwatch</h2>
+
+<p id="time">0</p>
+
+<button onclick="start()">Start</button>
+<button onclick="stop()">Stop</button>
+<button onclick="reset()">Reset</button>
+
+<br><br>
+
+<input type="text" id="input" disabled placeholder="Type after 1 second">
+
+<script>
+    var t = 0;
+    var id;
+    function start() {
+        id = setInterval(function () {
+            t = t + 1;
+            document.getElementById("time").innerHTML = t;
+            if (t >= 1) {
+                document.getElementById("input").disabled = false;
+            }
+        }, 1000);
+    }
+
+    function stop() {
+        clearInterval(id);
+    }
+
+    function reset() {
+        clearInterval(id);
+        t = 0;
+        document.getElementById("time").innerHTML = 0;
+        document.getElementById("input").value = "";
+        document.getElementById("input").disabled = true;
+    }
+</script>
+
+</body>
+</html>
