@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Local Storage Demo</title>
+</head>
+<body>
+
+    <script>
+        localStorage.setItem("username", "aditya");
+        let nameval = localStorage.getItem("name");
+
+        console.log("Hello",nameval)
+        function clearStorage() {
+            localStorage.clear();
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Color Change Box</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(to right, #f9f9f9, #eaeaea);
+            margin-top: 50px;
+        }
+
+        #box {
+            width: 150px;
+            height: 150px;
+            background-color: red;
+            border-radius: 15px; 
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2); 
+            transition: background-color 1s ease, transform 0.3s ease; 
+            margin: auto;
+            cursor: pointer;
+        }
+
+        #box:hover {
+            transform: scale(1.1); 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3); 
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Watch the Box Change Color</h2>
+    <div id="box"></div>
+
+    <script>
+        setTimeout(() => {
+            document.getElementById("box").style.backgroundColor = "blue";
+        }, 2000);
+    </script>
+
+</body>
+</html>

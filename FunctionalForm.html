@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>SAb choor hai</title>
+    <title>Simple Student Form</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background: linear-gradient(to right, #74ebd5, #ACB6E5);
+            margin: 0;
+            padding: 40px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 40px;
-            margin: 0;
         }
 
         h2 {
@@ -18,14 +18,27 @@
             margin-bottom: 20px;
         }
 
-        button {
-            padding: 10px 18px;
+        input {
             margin: 8px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #4CAF50;
+            box-shadow: 0 0 6px rgba(76, 175, 80, 0.5);
+            outline: none;
+        }
+
+        button {
+            padding: 10px 16px;
             background: #4CAF50;
             color: white;
             border: none;
             border-radius: 6px;
-            font-size: 16px;
+            font-size: 15px;
             cursor: pointer;
             transition: background 0.3s ease, transform 0.2s ease;
         }
@@ -38,8 +51,7 @@
         table {
             margin-top: 25px;
             border-collapse: collapse;
-            width: 400px;
-            background: #fff;
+            width: 70%;
             box-shadow: 0 6px 12px rgba(0,0,0,0.2);
             border-radius: 8px;
             overflow: hidden;
@@ -71,47 +83,42 @@
 </head>
 <body>
 
-    <h2>less vote</h2>
-    
-    <button onclick="addData('BJP')">BJP</button>
-    <button onclick="addData('CONG')">CONG</button>
-    <button onclick="addData('AAP')">AAP</button>
+    <h2>Student Details</h2>
+
+    <input type="text" id="name" placeholder="Enter Name">
+    <input type="number" id="age" placeholder="Enter Age">
+    <input type="text" id="course" placeholder="Enter Course">
+    <button onclick="addData()">Add</button>
 
     <table>
         <thead>
             <tr>
-                <th>BJP</th>
-                <th>CONG</th>
-                <th>AAP</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Course</th>
             </tr>
         </thead>
-        <tbody>
-            <tr>
-                <td id="bjpCount">0</td>
-                <td id="congCount">0</td>
-                <td id="aapCount">0</td>
-            </tr>
+        <tbody id="tableBody">
         </tbody>
     </table>
 
     <script>
-        let bjp=0;
-        let cong=0;
-        let aap=0;
+        function addData() {
+            let name = document.getElementById("name").value;
+            let age = document.getElementById("age").value;
+            let course = document.getElementById("course").value;
 
-        function addData(party){
-            if(party==="BJP"){
-                bjp++;
-                document.getElementById("bjpCount").innerHTML = bjp;
+            if (name === "" || age === "" || course === "") {
+                alert("Please fill all fields");
+                return;
             }
-            else if(party==="CONG"){
-                cong++;
-                document.getElementById("congCount").innerHTML = cong;
-            }
-            else if(party==="AAP"){
-                aap++;
-                document.getElementById("aapCount").innerHTML = aap;
-            }
+
+            let table = document.getElementById("tableBody");
+            let row = table.insertRow();
+
+            row.insertCell(0).innerHTML = name;
+            row.insertCell(1).innerHTML = age;
+            row.insertCell(2).innerHTML = course;
         }
     </script>
 

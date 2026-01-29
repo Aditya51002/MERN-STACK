@@ -3,34 +3,465 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Class room</title>
-    <link rel="stylesheet" href="style.css">
+    <title>MICRO PROJECTS - MERN Stack Learning</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card:hover .card-image {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .card-icon {
+            font-size: 5em;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-title {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .project-card:hover .card-title {
+            color: #667eea;
+        }
+
+        .card-description {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .card-tag {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-right: 5px;
+            margin-top: 5px;
+        }
+
+        .view-button {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            padding: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .view-button:hover {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            transform: scale(1.02);
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <nav>
-        <div class="container">
-            <h2>My Portfolio</h2>
-            <ul> 
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-    <section>
-        <div class="container">
-            <h2>Full Stack Development</h2>
-        </div>
-    </section>
-    <section>
-        <div class="container-home">
-            <h2>home</h2>
-            <div>name: Aditya</div>
-        <div class="about page">
-            <h2>about</h2>
-            <div>this is about page</div>
-        </div>
-    </section>
+    <header>
+        <h1>🚀 MICRO PROJECTS</h1>
+        <p>My Web Development Learning Journey</p>
+    </header>
 
+    <div class="container">
+        <div class="projects-grid">
+            
+            <!-- Account Management -->
+            <div class="project-card" onclick="window.location.href='Account Mnagement.html'">
+                <div class="card-image">
+                    <div class="card-icon">👤</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Account Management</h3>
+                    <p class="card-description">User account management system with authentication and profile features.</p>
+                    <div>
+                        <span class="card-tag">Forms</span>
+                        <span class="card-tag">Validation</span>
+                    </div>
+                    <a href="Account Mnagement.html" class="view-button">View Project →</a>
+                </div>
+            </div>
+
+            <!-- API Search Filter -->
+            <div class="project-card" onclick="window.location.href='APIserchFilter.html'">
+                <div class="card-image">
+                    <div class="card-icon">🔍</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">API Search Filter</h3>
+                    <p class="card-description">Search and filter data fetched from external APIs with real-time results.</p>
+                    <div>
+                        <span class="card-tag">API</span>
+                        <span class="card-tag">Filter</span>
+                    </div>
+                    <a href="APIserchFilter.html" class="view-button">View Project →</a>
+                </div>
+            </div>
+
+            <!-- BMI Calculator -->
+            <div class="project-card" onclick="window.location.href='BMI.html'">
+                <div class="card-image">
+                    <div class="card-icon">⚖️</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">BMI Calculator</h3>
+                    <p class="card-description">Calculate Body Mass Index and get health recommendations based on results.</p>
+                    <div>
+                        <span class="card-tag">Calculator</span>
+                        <span class="card-tag">Health</span>
+                    </div>
+                    <a href="BMI.html" class="view-button">View Project →</a>
+                </div>
+            </div>
+
+            <!-- Box Color Change -->
+            <div class="project-card" onclick="window.location.href='BoxColorChange.html'">
+                <div class="card-image">
+                    <div class="card-icon">🎨</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Box Color Change</h3>
+                    <p class="card-description">Interactive color changing box with dynamic visual effects and animations.</p>
+                    <div>
+                        <span class="card-tag">Interactive</span>
+                        <span class="card-tag">CSS</span>
+                    </div>
+                    <a href="BoxColorChange.html" class="view-button">View Project →</a>
+                </div>
+            </div>
+
+            <!-- Color Box Change Alt -->
+            <div class="project-card" onclick="window.location.href='ColorBOXchange.html'">
+                <div class="card-image">
+                    <div class="card-icon">🌈</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Color Box Change</h3>
+                    <p class="card-description">Another variation of color changing functionality with different interactions.</p>
+                    <div>
+                        <span class="card-tag">Colors</span>
+                        <span class="card-tag">Events</span>
+                    </div>
+                    <a href="ColorBOXchange.html" class="view-button">View Project →</a>
+                </div>
+            </div>
+
+            <!-- Box Swap -->
+            <div class="project-card" onclick="window.location.href='BoxSwap.html'">
+                <div class="card-image">
+                    <div class="card-icon">🔄</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Box Swap</h3>
+                    <p class="card-description">Swap positions of boxes with smooth animations and transitions.</p>
+                    <div>
+                        <span class="card-tag">Animation</span>
+                        <span class="card-tag">DOM</span>
+                    </div>
+                    <a href="BoxSwap.html" class="view-button">View Project →</a>
+                </div>
+            </div>
+
+            <!-- Box Color Swap -->
+            <div class="project-card" onclick="window.location.href='BOXColorSWAo.html'">
+                <div class="card-image">
+                    <div class="card-icon">↔️</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Box Color Swap</h3>
+                    <p class="card-description">Combine color changes with position swapping for interactive effects.</p>
+                    <div>
+                        <span class="card-tag">Interactive</span>
+                        <span class="card-tag">Effects</span>
+                    </div>
+                    <a href="BOXColorSWAo.html" class="view-button">View Project →</a>
+                </div>
+            </div>
+
+            <!-- API Fetch Demo -->
+            <div class="project-card" onclick="window.location.href='dmeoAPIfetch.html'">
+                <div class="card-image">
+                    <div class="card-icon">📡</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">API Fetch Demo</h3>
+                    <p class="card-description">Demonstration of fetching data from APIs using JavaScript fetch method.</p>
+                    <div>
+                        <span class="card-tag">API</span>
+                        <span class="card-tag">Fetch</span>
+                    </div>
+                    <a href="dmeoAPIfetch.html" class="view-button">View Project →</a>
+                </div>
+            </div>
+
+            <!-- Form -->
+            <div class="project-card" onclick="window.location.href='Form.html'">
+                <div class="card-image">
+                    <div class="card-icon">📝</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Form Project</h3>
+                    <p class="card-description">Complete form implementation with validation and user input handling.</p>
+                    <div>
+                        <span class="card-tag">Forms</span>
+                        <span class="card-tag">Validation</span>
+                    </div>
+                    <a href="Form.html" class="view-button">View Project →</a>
+                </div>
+            </div>
+
+            <!-- Functional Form -->
+            <div class="project-card" onclick="window.location.href='FunctionalForm.html'">
+                <div class="card-image">
+                    <div class="card-icon">✍️</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Functional Form</h3>
+                    <p class="card-description">Advanced form with functional programming concepts and modern JS.</p>
+                    <div>
+                        <span class="card-tag">Modern JS</span>
+                        <span class="card-tag">Forms</span>
+                    </div>
+                    <a href="FunctionalForm.html" class="view-button">View Project →</a>
+                </div>
+            </div>
+
+            <!-- Local Storage -->
+            <div class="project-card" onclick="window.location.href='localStorage.html'">
+                <div class="card-image">
+                    <div class="card-icon">💾</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Local Storage</h3>
+                    <p class="card-description">Explore browser storage capabilities for persistent data storage.</p>
+                    <div>
+                        <span class="card-tag">Storage</span>
+                        <span class="card-tag">Data</span>
+                    </div>
+                    <a href="localStorage.html" class="view-button">View Project →</a>
+                </div>
+            </div>
+
+            <!-- Power Calculator -->
+            <div class="project-card" onclick="window.location.href='PowerCAL.html'">
+                <div class="card-image">
+                    <div class="card-icon">🔢</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Power Calculator</h3>
+                    <p class="card-description">Calculate powers and exponents with an interactive calculator interface.</p>
+                    <div>
+                        <span class="card-tag">Math</span>
+                        <span class="card-tag">Calculator</span>
+                    </div>
+                    <a href="PowerCAL.html" class="view-button">View Project →</a>
+                </div>
+            </div>
+
+            <!-- Power Calculator Alt -->
+            <div class="project-card" onclick="window.location.href='PowerCalculator.html'">
+                <div class="card-image">
+                    <div class="card-icon">⚡</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Power Calculator Pro</h3>
+                    <p class="card-description">Advanced power calculation tool with extended mathematical functions.</p>
+                    <div>
+                        <span class="card-tag">Math</span>
+                        <span class="card-tag">Advanced</span>
+                    </div>
+                    <a href="PowerCalculator.html" class="view-button">View Project →</a>
+                </div>
+            </div>
+
+            <!-- Quiz -->
+            <div class="project-card" onclick="window.location.href='Quize.html'">
+                <div class="card-image">
+                    <div class="card-icon">❓</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Quiz Application</h3>
+                    <p class="card-description">Interactive quiz app with questions, answers, and score tracking.</p>
+                    <div>
+                        <span class="card-tag">Quiz</span>
+                        <span class="card-tag">Interactive</span>
+                    </div>
+                    <a href="Quize.html" class="view-button">View Project →</a>
+                </div>
+            </div>
+
+            <!-- Timer -->
+            <div class="project-card" onclick="window.location.href='timer.html'">
+                <div class="card-image">
+                    <div class="card-icon">⏱️</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Timer Application</h3>
+                    <p class="card-description">Countdown timer with start, pause, and reset functionality.</p>
+                    <div>
+                        <span class="card-tag">Timer</span>
+                        <span class="card-tag">Events</span>
+                    </div>
+                    <a href="timer.html" class="view-button">View Project →</a>
+                </div>
+            </div>
+
+            <!-- Todo List -->
+            <div class="project-card" onclick="window.location.href='TOdo list.html'">
+                <div class="card-image">
+                    <div class="card-icon">✅</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Todo List</h3>
+                    <p class="card-description">Task management app with add, delete, and mark as complete features.</p>
+                    <div>
+                        <span class="card-tag">CRUD</span>
+                        <span class="card-tag">Tasks</span>
+                    </div>
+                    <a href="TOdo list.html" class="view-button">View Project →</a>
+                </div>
+            </div>
+
+            <!-- Vote for Party -->
+            <div class="project-card" onclick="window.location.href='VoteforParty.html'">
+                <div class="card-image">
+                    <div class="card-icon">🗳️</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Vote for Party</h3>
+                    <p class="card-description">Voting system application to cast and count votes for different parties.</p>
+                    <div>
+                        <span class="card-tag">Voting</span>
+                        <span class="card-tag">Counter</span>
+                    </div>
+                    <a href="VoteforParty.html" class="view-button">View Project →</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Add smooth scroll behavior
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                if (!e.target.classList.contains('view-button')) {
+                    const link = this.querySelector('.view-button').href;
+                    window.location.href = link;
+                }
+            });
+        });
+
+        // Add entrance animations
+        window.addEventListener('load', () => {
+            const cards = document.querySelectorAll('.project-card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    card.style.transition = 'all 0.5s ease';
+                    
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 50);
+                }, index * 50);
+            });
+        });
+    </script>
 </body>
 </html>

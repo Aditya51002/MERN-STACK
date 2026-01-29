@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BMI Calculator</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #74ebd5, #ACB6E5);
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 8px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #4CAF50;
+            box-shadow: 0 0 6px rgba(76, 175, 80, 0.5);
+            outline: none;
+        }
+
+        button {
+            padding: 10px 16px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background: #45a049;
+            transform: scale(1.05);
+        }
+
+        table {
+            margin-top: 25px;
+            border-collapse: collapse;
+            width: 400px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        table, th, td {
+            border: 1px solid #333;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #d6eaf8;
+            transition: background-color 0.3s ease;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>BMI Calculator</h2>
+
+<input type="number" id="weight" placeholder="Weight (kg)">
+<input type="number" id="height" placeholder="Height (cm)">
+<button onclick="addData()">Calculate</button>
+
+<table>
+    <thead>
+        <tr>
+            <th>Weight</th>
+            <th>Height</th>
+            <th>BMI</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+</table>
+
+<script>
+    function addData() {
+
+        var weight = document.getElementById("weight").value;
+        var height = document.getElementById("height").value;
+
+        if (weight == "" || height == "") {
+            alert("fill all fields");
+            return;
+        }
+        height = height / 100;
+        var bmi = weight / (height * height);
+        var status = "";
+
+        if (bmi < 18.5) {
+            status = "Underweight";
+        } else if (bmi < 25) {
+            status = "Normal";
+        } else if (bmi < 30) {
+            status = "Overweight";
+        } else {
+            status = "Obese";
+        }
+
+        var table = document.getElementById("tableBody");
+        var row = table.insertRow();
+
+        row.insertCell(0).innerText = weight;
+        row.insertCell(1).innerText = (height * 100);
+        row.insertCell(2).innerText = bmi.toFixed(2);
+        row.insertCell(3).innerText = status;
+    }
+</script>
+
+</body>
+</html>

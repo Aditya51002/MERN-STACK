@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Account Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #74ebd5, #ACB6E5);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            text-align: center;
+            width: 300px;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        #balance {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+
+        button:nth-child(3) {
+            background: #f39c12;
+        }
+
+        button:nth-child(3):hover {
+            background: #e67e22;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>My Account</h2>
+        <p id="balance">Balance: ₹1000</p>
+        <input type="number" id="amount" placeholder="Enter amount">
+
+        <br><br>
+
+        <button onclick="deposit()">Deposit</button>
+        <button onclick="withdraw()">Withdraw</button>
+        <button onclick="showInitial()">Show Initial Balance</button>
+    </div>
+
+    <script>
+        let initialBalance = 1000;
+        let balance = initialBalance;
+
+        function deposit() {
+            let amt = Number(document.getElementById("amount").value);
+            balance = balance + amt;
+            document.getElementById("balance").innerText = "Balance: ₹" + balance;
+        }
+
+        function withdraw() {
+            let amt = Number(document.getElementById("amount").value);
+            balance = balance - amt;
+            document.getElementById("balance").innerText = "Balance: ₹" + balance;
+        }
+
+        function showInitial() {
+            document.getElementById("balance").innerText =
+                "Initial Balance: ₹" + initialBalance;
+        }
+    </script>
+
+</body>
+</html>

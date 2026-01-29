@@ -3,17 +3,47 @@
 <head>
     <title>Demo API Fetch</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #f9f9f9, #eaeaea);
+            margin: 40px;
+            text-align: center;
+        }
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        #status {
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding: 8px;
+            display: inline-block;
+            border-radius: 6px;
+            background: #ddd;
+        }
         table {
-            width: 100%;
+            width: 80%;
+            margin: auto;
             border-collapse: collapse;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            overflow: hidden;
         }
         th, td {
             border: 1px solid #333;
-            padding: 8px;
+            padding: 10px;
             text-align: left;
         }
         th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:nth-child(even) {
             background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #d6eaf8;
+            transition: background-color 0.3s ease;
         }
     </style>
 </head>
@@ -48,23 +78,23 @@
             .then(users => {
                 displayUsers(users);
                 statusDiv.textContent = "Loaded";
+                statusDiv.style.background = "#c8e6c9";
             })
             .catch(err => {
                 statusDiv.textContent = "Error loading data";
+                statusDiv.style.background = "#f5b7b1";
                 console.error(err);
             });
 
         function displayUsers(users) {
             users.forEach(user => {
                 let row = document.createElement('tr');
-
                 row.innerHTML = `
                     <td>${user.id}</td>
                     <td>${user.email}</td>
                     <td>${user.phone}</td>
                     <td>${user.website}</td>
                 `;
-
                 usersBody.appendChild(row);
             });
         }

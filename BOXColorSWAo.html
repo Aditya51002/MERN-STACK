@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Color Swap</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(to right, #f0f0f0, #dcdcdc);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            margin: 15px;
+            border: 2px solid #444;
+            cursor: pointer;
+            border-radius: 12px; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+            transition: transform 0.3s ease, background-color 0.5s ease; 
+        }
+
+        .box:hover {
+            transform: scale(1.1); 
+            border-color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Click any box to swap colors</h2>
+
+<div id="d1" class="box" style="background:red" onclick="swapColors()"></div>
+<div id="d2" class="box" style="background:blue" onclick="swapColors()"></div>
+<div id="d3" class="box" style="background:green" onclick="swapColors()"></div>
+<div id="d4" class="box" style="background:yellow" onclick="swapColors()"></div>
+
+<script>
+    function swapColors() {
+        let c1 = document.getElementById("d1").style.backgroundColor;
+        let c2 = document.getElementById("d2").style.backgroundColor;
+        let c3 = document.getElementById("d3").style.backgroundColor;
+        let c4 = document.getElementById("d4").style.backgroundColor;
+
+        document.getElementById("d1").style.backgroundColor = c4;
+        document.getElementById("d2").style.backgroundColor = c1;
+        document.getElementById("d3").style.backgroundColor = c2;
+        document.getElementById("d4").style.backgroundColor = c3;
+    }
+</script>
+
+</body>
+</html>

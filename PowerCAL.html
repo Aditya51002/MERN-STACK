@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Power Calculator</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #74ebd5, #ACB6E5);
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            background: #fff;
+            width: 340px;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #4CAF50;
+            box-shadow: 0 0 6px rgba(76, 175, 80, 0.5);
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background: #45a049;
+            transform: scale(1.05);
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 340px;
+            background: #fff;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        table, th, td {
+            border: 1px solid #333;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #d6eaf8;
+            transition: background-color 0.3s ease;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Power Calculator</h2>
+
+    <input type="number" id="number1" placeholder="Enter number 1">
+    <input type="number" id="number2" placeholder="Enter number 2">
+
+    <button onclick="addData()">CAL</button>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>Number 1</th>
+            <th>Number 2</th>
+            <th>Result</th>
+        </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+</table>
+
+<script>
+    function addData() {
+        let number1 = document.getElementById("number1").value;
+        let number2 = document.getElementById("number2").value;
+
+        if (number1 === "" || number2 === "") {
+            alert("Please enter both numbers");
+            return;
+        }
+
+        number1 = Number(number1);
+        number2 = Number(number2);
+
+        let result = Math.pow(number1, number2);
+
+        let table = document.getElementById("tableBody");
+        let row = table.insertRow();
+
+        row.insertCell(0).innerText = number1;
+        row.insertCell(1).innerText = number2;
+        row.insertCell(2).innerText = result;
+    }
+</script>
+
+</body>
+</html>

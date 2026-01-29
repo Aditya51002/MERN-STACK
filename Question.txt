@@ -25,3 +25,7 @@ This movement should happen when the user clicks on any box.”
 
 Question5(HomeWork3)
  "personal productive app that helps mange daily activites"
+
+ 
+Question6
+ fetch api in which serch fileter implemented
