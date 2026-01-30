@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Weather & Location Dashboard</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    text-align: center;
+    padding: 30px;
+}
+
+.container {
+    background: white;
+    padding: 20px;
+    width: 320px;
+    margin: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+input {
+    padding: 8px;
+    width: 70%;
+}
+
+button {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+#weather {
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+.loading {
+    color: blue;
+}
+
+.error {
+    color: red;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    cursor: pointer;
+    color: blue;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>🌤 Weather Dashboard</h2>
+
+    <input type="text" id="cityInput" placeholder="Enter city">
+    <button onclick="getWeather()">Search</button>
+
+    <div id="weather"></div>
+
+    <h4>Recent Searches</h4>
+    <ul id="recent"></ul>
+</div>
+
+<script>
+const weatherDiv = document.getElementById("weather");
+const recentList = document.getElementById("recent");
+
+loadRecent();
+
+function getWeather(cityFromClick){
+    const city = cityFromClick || document.getElementById("cityInput").value;
+    if (!city) return;
+
+    weatherDiv.innerHTML = "<p class='loading'>Loading...</p>";
+    fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${city}`)
+    .then(res => res.json())
+    .then(data => {
+        if (!data.results) throw "City not found";
+
+        const { latitude, longitude, name } = data.results[0];
+
+        return fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`)
+        .then(res => res.json())
+        .then(weather => {
+            weatherDiv.innerHTML = `
+                <p><b>${name}</b></p>
+                <p>Temperature: ${weather.current_weather.temperature}°C</p>
+                <p>Wind Speed: ${weather.current_weather.windspeed} km/h</p>
+            `;
+            saveRecent(name);
+        });
+    })
+    .catch(() =>{
+        weatherDiv.innerHTML = "<p class='error'>City not found ❌</p>";
+    });
+}
+
+function saveRecent(city){
+    let searches = JSON.parse(localStorage.getItem("recentCities")) || [];
+    if (!searches.includes(city)){
+        searches.unshift(city);
+        if (searches.length > 5) searches.pop();
+        localStorage.setItem("recentCities", JSON.stringify(searches));
+    }
+    loadRecent();
+}
+
+function loadRecent() {
+    recentList.innerHTML = "";
+    let searches = JSON.parse(localStorage.getItem("recentCities")) || [];
+    searches.forEach(city => {
+        const li = document.createElement("li");
+        li.innerText = city;
+        li.onclick = () => getWeather(city);
+        recentList.appendChild(li);
+    });
+}
+</script>
+
+</body>
+</html>

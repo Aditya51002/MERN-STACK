@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Random Number Game</title>
+    <style
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: linear-gradient(135deg, #f0f4f8, #d9e4f5);
+    margin: 0;
+    padding: 20px;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px;
+}
+
+.box {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #333;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    background: #e0e0e0;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.box:hover {
+    transform: scale(1.1);
+    background: #cfd8dc;
+}
+
+input {
+    padding: 8px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-color: #0077ff;
+}
+
+button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    background: #0077ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background: #005fcc;
+    transform: scale(1.05);
+}
+
+#result {
+    margin-top: 15px;
+    font-size: 22px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+#result.win {
+    color: green;
+}
+
+#result.lose {
+    color: red;
+
+}
+</style>
+
+
+<body>
+
+<h2>Guess the Number</h2>
+
+<input type="number" id="input" placeholder="Enter the number">
+
+<div class="container">
+    <div class="box">  </div>
+    <div class="box">  </div>
+    <div class="box">  </div>
+    <div class="box">  </div>
+</div>
+
+<button onclick="ChecktheNumber()">Check</button>
+
+<h3 id="result"></h3>
+
+<script>
+    let numbers = [
+        Math.floor(Math.random() * 20),
+        Math.floor(Math.random() * 20),
+        Math.floor(Math.random() * 20),
+        Math.floor(Math.random() * 20)
+    ];
+
+     let boxes = document.querySelectorAll(".box");
+
+    function ChecktheNumber() {
+        let userInput = Number(document.getElementById("input").value);
+        let result = document.getElementById("result");
+
+        if (numbers.includes(userInput)) {
+            result.innerText = "WIN!";
+            boxes.forEach((box, index) => {
+                box.innerText = numbers[index];
+            });
+        } else {
+            result.innerText = "LOSE!";
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -29,3 +29,14 @@ Question5(HomeWork3)
  
 Question6
  fetch api in which serch fileter implemented
+
+Question7
+"weather & location dashboard"
+A small dashboard that:
+fetches weather data from a public api displays current weather for serched cities store recent serchtes t localstogres handels
+loading and eroor stares"
+
+
+creat a box in each box their is random number which i hedden in and a textfild which i input by the
+ user and a button very that the number given by the user is mthc with that 4 box or not if match win mag if 
+ not the lodr msg
