@@ -1,26 +1,14 @@
-import React,{useState} from "react";
+import React from "react";
 
-
-function counter(){
-
-    const[count,setCount]=useState(0);
-    const increment=()=>{
-        setCount(count+1);
-        console.log(count);
-    }   
-
-    const decriment=()=>{
-        setCount(count-1);
-        console.log(count);
-    }
-    return(
-        <div>
-            <h2>count:</h2>
-            <button onClick= {increment}>increment</button>
-            <button onClick= {decriment}>decrement</button>
-        </div>
-
-        
-    )
+function Counter({ showCards, toggleCards }) {
+  return (
+    <div style={{ textAlign: "center", marginTop: "20px" }}>
+      <h2>Count: {showCards ? 1 : 0}</h2>
+      <button onClick={toggleCards}>
+        {showCards ? "Hide Cards" : "Show Cards"}
+      </button>
+    </div>
+  );
 }
-export default counter;
+
+export default Counter;
