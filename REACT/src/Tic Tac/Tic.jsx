@@ -1,4 +1,3 @@
-// Tic.jsx
 import React, { useState } from "react";
 
 function Square({ value, onClick }) {
@@ -45,17 +44,6 @@ function Board() {
         ))}
       </div>
       <h2>{status}</h2>
-      <button
-        style={{
-          marginTop: "15px",
-          padding: "10px 20px",
-          fontSize: "1em",
-          cursor: "pointer",
-        }}
-        onClick={() => setSquares(Array(9).fill(null))}
-      >
-        Restart
-      </button>
     </div>
   );
 }
@@ -79,6 +67,6 @@ function calculateWinner(squares) {
   return null;
 }
 
-export default function Tic() {
+export default function App() {
   return <Board />;
 }
