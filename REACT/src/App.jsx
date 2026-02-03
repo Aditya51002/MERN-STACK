@@ -1,13 +1,12 @@
 import React from "react";
-import FetchAPI from "./API/fetchAPI";
+import Pokeman from "./API/Pokeman";
 
-const App = () => {
+function App() {
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>User Data</h2>
-      <FetchAPI />
+    <div>
+      <Pokeman />
     </div>
   );
-};
+}
 
 export default App;
