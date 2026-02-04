@@ -1,12 +1,11 @@
-import React from "react";
-import Pokeman from "./API/Pokeman";
+import HomeWorkMain from "./HomeWork/main";
 
-function App() {
+const App = () => {
   return (
     <div>
-      <Pokeman />
+      <HomeWorkMain />
     </div>
   );
-}
+};
 
 export default App;
