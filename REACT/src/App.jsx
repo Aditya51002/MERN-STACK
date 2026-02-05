@@ -1,10 +1,13 @@
-import HomeWorkMain from "./HomeWork/main";
+import UseMemo from "./UseMemo/UseMemo";
 
 const App = () => {
   return (
-    <div>
-      <HomeWorkMain />
-    </div>
+    <>
+      {/* <AssignmentMain /> */}
+      <div>
+        <UseMemo />
+      </div>
+    </>
   );
 };
 
