@@ -1,14 +1,7 @@
-import UseMemo from "./UseMemo/UseMemo";
+import AssignmentMain from "./Assignment/main";
 
-const App = () => {
-  return (
-    <>
-      {/* <AssignmentMain /> */}
-      <div>
-        <UseMemo />
-      </div>
-    </>
-  );
-};
+function App() {
+  return <AssignmentMain />;
+}
 
 export default App;

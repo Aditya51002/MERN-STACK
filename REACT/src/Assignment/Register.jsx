@@ -1,35 +1,43 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const Register = ({ setPage }) => {
-    const [form, setForm ] = useState({
-        name:"",
-        mobile:"",
-        email:"",
-        password:""
-    });
-    const handleChange =(e)=>{
-        setForm({...form,[e.target.name]:e.target.value})
-    }
+  const [form, setForm] = useState({ name: "", email: "", password: "" });
 
-    const handleRegister=()=>{
-        localStorage.setItem("user",JSON.stringify(form));
-        alert("Registration Successful");
-        setPage("login");
-    }
+  const register = () => {
+    localStorage.setItem("user", JSON.stringify(form));
+    alert("Registration Successful");
+    setPage("login");
+  };
 
-    return(
-        <div>
-            <h2>Register</h2>
-            <input name="name" placeholder="Name" onChange={handleChange}/><br/><br/>
-            <input name="mobile" placeholder="Mobile" onChange={handleChange}/><br/><br/>
-            <input name="email" placeholder="Email" onChange={handleChange}/><br/><br/>
-            <input name="password" type="password" placeholder="Password" onChange={handleChange}/><br/><br/>
-            <button onClick={handleRegister}>Register</button>
-        </div>  
-    )
+  return (
+    <div
+      style={{
+        width: "360px",
+        padding: "30px",
+        borderRadius: "18px",
+        background: "#111827",
+        color: "#f9fafb",
+        boxShadow: "0 20px 40px rgba(0,0,0,0.4)"
+      }}
+    >
+      <h2>Register</h2>
 
+      <input placeholder="Name" style={inputStyle}
+        onChange={(e) => setForm({ ...form, name: e.target.value })} />
+      <input placeholder="Email" style={inputStyle}
+        onChange={(e) => setForm({ ...form, email: e.target.value })} />
+      <input type="password" placeholder="Password" style={inputStyle}
+        onChange={(e) => setForm({ ...form, password: e.target.value })} />
 
+      <button style={buttonStyle} onClick={register}>
+        Register
+      </button>
 
+      <p style={linkStyle} onClick={() => setPage("login")}>
+        Already registered? Login
+      </p>
+    </div>
+  );
 };
 
 export default Register;
