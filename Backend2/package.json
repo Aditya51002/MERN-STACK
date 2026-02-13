@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "express": "^5.2.1",
+    "mogoose": "^0.0.1-security",
+    "nodemon": "^3.1.11"
+  },
+  "name": "backend2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
