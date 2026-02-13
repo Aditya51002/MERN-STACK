@@ -44,9 +44,9 @@ const Login = ({ setPage, setUser }) => {
         Login
       </button>
 
-      <p style={linkStyle} onClick={() => setPage("register")}>
+      {/* <p style={linkStyle} onClick={() => setPage("register")}>
         New user? Register
-      </p>
+      </p> */}
     </div>
   );
 };
