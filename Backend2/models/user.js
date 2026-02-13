@@ -11,7 +11,7 @@ const userSchema= new mongoose.Schema({
     emailId:{
         type:String,
         required:[true,"email id is req"],
-        unique:[true,"dublicate mail iod"]
+        unique:[true,"dublicate mail id"]
     }
 })
 
